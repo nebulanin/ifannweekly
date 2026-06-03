@@ -37,41 +37,17 @@
                 <td align="center">1</td>
                 <td>Stella</td>
                 <td><img src ="assets/image/stella.jpg" alt="Foto" width="60px"></td> 
-                <td align= "center">90</td>
-                <td align= "center">85</td>
-                <td align= "center">95</td>
+                <td align= "center">13182420081</td>
+                <td align= "center">Informatika</td>
+                <td align= "center">anin@unimus.com</td>
+                <td align= "center">08765432108</td>
                 <td>
                     <a href="editdata.php"><button>edit</button></a>
                     <a href="deletedata.php"><button>Hapus</button></a>
                 </td>
             </tr>
 
-            <tr>
-                <td>2</td>
-                <td>Carmen</td>
-                <td><img src ="assets/image/carmen.jpg" alt="Foto" width="60px"></td> 
-                <td align= "center">90</td>
-                <td align= "center">90</td>
-                <td align= "center">90</td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>Ian</td>
-                <td><img src ="assets/image/ian.jpg" alt="Foto" width="60px"></td> 
-                <td align= "center">85</td>
-                <td align= "center">80</td>
-                <td align= "center">89</td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>Jiwoo</td>
-                <td><img src ="assets/image/jiwoo.jpg" alt="Foto" width="60px"></td> 
-                <td align= "center">85</td>
-                <td align= "center">85</td>
-                <td align= "center">89</td>
-            </tr>
+            
         </table>
         <br>
         <hr>
