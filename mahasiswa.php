@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +9,41 @@
     <h1>INFORMATICS STUDENT</h1>
         <table border="1" cellspacing="0" cellpadding="10px">
             <tr>
-                <td><a href="index.html">Home</a></td>
-                <td><a href="profile.html">Profile</a></td>
-                <td><a href="contact.html">Contact</a></td>
-                <td><a href="mahasiswa.html">Data mahasiswa</a></td>
+                <td><a href="index.php">Home</a></td>
+                <td><a href="profile.php">Profile</a></td>
+                <td><a href="contact.php">Contact</a></td>
+                <td><a href="mahasiswa.php">Data mahasiswa</a></td>
             </tr>
         </table>
         <br>
         <hr/>
         <h2>Data mahasiswa</h2>
-        <a href="tambahdata.html">
+        <a href="tambahdata.php">
             <button>Tambah Data</button>
         </a>
-        <table border="1"cellpadding="10">
+        <table border="1"cellpadding="10px">
             <tr>
-                <th rowspan="2">No</th>
-                <th rowspan="2">Nama</th>
-                <th rowspan="2">Foto</th>
-                <th colspan="3">Nilai</th>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Jurusan</th>
+                <th>Email</th>
+                <th>No.HP</th>
+                <th>Foto</th>
+                <th>Aksi</th>
             </tr>
+        
             <tr>
-                <th>UTS</th>
-                <th>UAS</th>
-                <th>Tugas</th>
-            </tr>
-            <tr>
-                <td>1</td>
+                <td align="center">1</td>
                 <td>Stella</td>
                 <td><img src ="assets/image/stella.jpg" alt="Foto" width="60px"></td> 
                 <td align= "center">90</td>
                 <td align= "center">85</td>
                 <td align= "center">95</td>
+                <td>
+                    <a href="editdata.php"><button>edit</button></a>
+                    <a href="deletedata.php"><button>Hapus</button></a>
+                </td>
             </tr>
 
             <tr>
@@ -89,5 +93,5 @@
         
 
 </body>
-</html>
+</php>
  

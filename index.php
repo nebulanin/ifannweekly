@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE php>
+<php>
     <head>
         <meta charset="UTF-8">
         <title>
@@ -11,10 +11,10 @@
         <h1>⋆. 𓂃۶ৎ˚࿔COME GET TO KNOW ANIN 𝜗𝜚˚⋆</h1>
         <table cellspacing="0" cellpadding="10px">
             <tr>
-                <td><a href="index.html">Home</a></td>
-                <td><a href="profile.html">Profile</a></td>
-                <td><a href="contact.html">Contact</a></td>
-                <td><a href="mahasiswa.html">Data mahasiswa</a></td>
+                <td><a href="index.php">Home</a></td>
+                <td><a href="profile.php">Profile</a></td>
+                <td><a href="contact.php">Contact</a></td>
+                <td><a href="mahasiswa.php">Data mahasiswa</a></td>
             </tr>
         </table>
         <br>
@@ -48,10 +48,10 @@
         </ul>
 
 
-        <!-- <a href="profile.html">Profile</a>
-        <a href="contact.html">Contact</a>
+        <!-- <a href="profile.php">Profile</a>
+        <a href="contact.php">Contact</a>
         <td><a href="https://tiktok.com" Target="_blank">Tiktok</a></td> -->
 
        
     </body>
-</html>
+</php>
