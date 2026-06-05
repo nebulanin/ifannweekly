@@ -1,3 +1,20 @@
+<?php
+
+require "fungsi.php";
+$qmahasiswa = "SELECT * FROM mahasiswa";
+$mahasiswa = tampildata($qmahasiswa); ///array isinya data mhs
+
+// var_dump($mhs);
+// die;
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE php>
 <php lang="en">
 <head>
@@ -32,40 +49,41 @@
                 <th>Foto</th>
                 <th>Aksi</th>
             </tr>
-        
+
+            <?php
+            $i = 1;
+            foreach($mahasiswa as $mhs) {
+            ?>
             <tr>
-                <td align="center">1</td>
-                <td>Stella</td>
-                <td><img src ="assets/image/stella.jpg" alt="Foto" width="60px"></td> 
-                <td align= "center">13182420081</td>
+                <td align="center"><?= $i ?></td>
+                <td><?php echo $mhs["nama"]?></td>
+                <td><?php echo $mhs["nim"]?></td>
+                <td><?php echo $mhs["jurusan"]?></td>
+                <td><?php echo $mhs["email"]?></td>
+                <td><?php echo $mhs["no_hp"]?></td>
+                <td><img src ="assets/image/<?= $mhs["foto"] ?>" alt="Foto" width="60px"></td> 
+                
+                <!-- <td align= "center">13182420081</td>
                 <td align= "center">Informatika</td>
                 <td align= "center">anin@unimus.com</td>
-                <td align= "center">08765432108</td>
+                <td align= "center">08765432108</td> -->
                 <td>
                     <a href="editdata.php"><button>edit</button></a>
                     <a href="deletedata.php"><button>Hapus</button></a>
                 </td>
             </tr>
-
+            <?php
+            $i++;
+                }
+            
+            ?>
+    
             
         </table>
         <br>
         <hr>
         <br>
 
-        <table border="1"cellpadding="10">
-            <tr>
-            <th rowspan="2">1.1</th>
-            <th rowspan="2">1.2</th>
-            <th rowspan="2">1.3</th>
-            <th colspan="3">1.4</th>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td>2.1</td>
-            </tr>
-
-        </table>
         
 
 </body>

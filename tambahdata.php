@@ -14,39 +14,47 @@
                     <label for="nama">Nama</label>
                 </td>
                 <td> : </td>
-                <td><input type="text" id="nama" name="nama"></td>
+                <td><input type="text" id="nama" name="nama" require></td>
             </tr>
 
             <tr>
+                <td>
+                    <label for="nim">NIM</label>
+                </td>
+                <td> : </td>
+                <td><input type="number" id="nim" name="nim" require></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="jurusan">Jurusan</label>
+                </td>
+                <td> : </td>
+                <td><input type="text" id="jurusan" name="jurusan" require></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                </td>
+                <td> : </td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="nohp">No. Hp</label>
+                </td>
+                <td> : </td>
+                <td><input type="number" id="nohp" name="no_hp"></td>
+            </tr>
+
+            tr>
                 <td>
                     <label for="foto">Foto</label>
                 </td>
                 <td> : </td>
-                <td><input type="file" id="foto" name="foto"></td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label for="Uts">UTS</label>
-                </td>
-                <td> : </td>
-                <td><input type="number" id="uts" name="uts"></td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label for="UAS">UAS</label>
-                </td>
-                <td> : </td>
-                <td><input type="number" id="UAS" name="UAS"></td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label for="Tugas">Tugas</label>
-                </td>
-                <td> : </td>
-                <td><input type="number" id="Tugas" name="Tugas"></td>
+                <td><input type="text" id="foto" name="foto"></td>
             </tr>
 
             <tr>
