@@ -1,73 +1,67 @@
 <?php
-// Pastikan file fungsi.php berisi fungsi tambahdata yang melakukan query INSERT
 require "fungsi.php";
+$id = $_GET["id"];  
+$query = "SELECT * FROM mahasiswa WHERE id = $id";
+$mahasiswa = tampildata($query)[0];
 
-if(isset($_POST["submit"])) {
-    // Memanggil fungsi tambahdata yang telah dibuat di file fungsi.php
-    // Fungsi ini harus mengembalikan jumlah baris yang terpengaruh (mysqli_affected_rows)
-    if (tambahdata($_POST) > 0) {
+if (!isset($_POST['submit'])) {
+   if(ubahdata($_POST, $id) > 0) {
         echo "<script>
-                alert('Data Berhasil di Tambahkan!');
+                alert('Data Berhasil di Ubah!');
                 window.location.href='mahasiswa.php';
               </script>";
-    } else {
+    } 
+    else {
         echo "<script>
-                alert('Data gagal di Tambahkan!');
+                alert('Data gagal di Ubah!');
                 window.location.href='mahasiswa.php';
               </script>";
-    }
+    }   
 }
-?>
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Mahasiswa</title>
+    <title>Ubah Data Mahasiswa</title>
 </head>
 <body>
-    <h2>Tambah Data Mahasiswa</h2>
+    <h2>Ubah Data Mahasiswa</h2>
     <form action="" method="post" enctype="multipart/form-data">
         <table cellpadding="5px">
             <tr>
                 <td><label for="nama">Nama</label></td>
                 <td> : </td>
-                <td><input type="text" id="nama" name="nama" required></td>
+                <td><input type="text" id="nama" name="nama" value="<?= $mahasiswa['nama'] ?>" required></td>
             </tr>
             <tr>
                 <td><label for="nim">NIM</label></td>
                 <td> : </td>
-                <td><input type="number" id="nim" name="nim" required></td>
+                <td><input type="number" id="nim" name="nim" value="<?= $mahasiswa['nim'] ?>" required></td>
             </tr>
             <tr>
                 <td><label for="jurusan">Jurusan</label></td>
                 <td> : </td>
-                <td><input type="text" id="jurusan" name="jurusan" required></td>
+                <td><input type="text" id="jurusan" name="jurusan" value="<?= $mahasiswa['jurusan'] ?>" required></td>
             </tr>
             <tr>
                 <td><label for="email">Email</label></td>
                 <td> : </td>
-                <td><input type="email" id="email" name="email"></td>
+                <td><input type="email" id="email" name="email" value="<?= $mahasiswa['email'] ?>"></td>
             </tr>
             <tr>
                 <td><label for="nohp">No. Hp</label></td>
                 <td> : </td>
-                <td><input type="number" id="nohp" name="nohp"></td>
-            </tr>
-            <tr>
-                <td><label for="foto">Foto</label></td>
-                <td> : </td>
-                <td><input type="text" id="foto" name="foto"></td>
+                <td><input type="number" id="nohp" name="nohp" value="<?= $mahasiswa['no_hp'] ?>"></td>
             </tr>
             <tr>
                 <td colspan="3">
-                    <button type="submit" name="submit">Tambah</button>
+                    <button type="submit" name="submit">Ubah</button>
                 </td>
             </tr>
         </table>
     </form>
     <br>
     <hr>
-</body>
-</html>
