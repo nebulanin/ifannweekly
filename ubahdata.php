@@ -1,17 +1,17 @@
 <?php
 require "fungsi.php";
+
 $id = $_GET["id"];  
 $query = "SELECT * FROM mahasiswa WHERE id = $id";
-$mahasiswa = tampildata($query)[0];
+$mahasiswa = tampilData($query)[0];
 
-if (!isset($_POST['submit'])) {
-   if(ubahdata($_POST, $id) > 0) {
+if(isset($_POST['submit'])) {
+    if(ubahData($_POST, $id) > 0) {
         echo "<script>
                 alert('Data Berhasil di Ubah!');
                 window.location.href='mahasiswa.php';
               </script>";
-    } 
-    else {
+    } else {
         echo "<script>
                 alert('Data gagal di Ubah!');
                 window.location.href='mahasiswa.php';
@@ -24,7 +24,6 @@ if (!isset($_POST['submit'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Data Mahasiswa</title>
 </head>
 <body>
@@ -52,9 +51,9 @@ if (!isset($_POST['submit'])) {
                 <td><input type="email" id="email" name="email" value="<?= $mahasiswa['email'] ?>"></td>
             </tr>
             <tr>
-                <td><label for="nohp">No. Hp</label></td>
+                <td><label for="no_hp">No. Hp</label></td>
                 <td> : </td>
-                <td><input type="number" id="nohp" name="nohp" value="<?= $mahasiswa['no_hp'] ?>"></td>
+                <td><input type="number" id="no_hp" name="no_hp" value="<?= $mahasiswa['no_hp'] ?>"></td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -63,5 +62,5 @@ if (!isset($_POST['submit'])) {
             </tr>
         </table>
     </form>
-    <br>
-    <hr>
+</body>
+</html>

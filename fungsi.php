@@ -1,59 +1,64 @@
 <?php
-// 1. Koneksi ke database
-$koneksi = mysqli_connect("localhost", "root", "", "ifannweekly");
+$conn = mysqli_connect("localhost", "root", "", "ifannweekly");
 
-// 2. Fungsi untuk menampilkan data
-function tampildata($query)
-{
-    global $koneksi;
-    $result = mysqli_query($koneksi, $query);
-    
-    // Inisialisasi array kosong agar tidak error jika data kosong
-    $rows = []; 
-    
-    // Menampung hasil query ke dalam array
-    while($row = mysqli_fetch_assoc($result)) {
+function tampilData($query) {
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
-
     return $rows;
 }
 
-// 3. Fungsi untuk menambah data
-function tambahdata($data)
-{
-    // WAJIB: Global agar variabel $koneksi terbaca di dalam fungsi
-    global $koneksi; 
-
-    // Mengamankan input dari user
-    $nama = htmlspecialchars($data["nama"]);
-    $nim = htmlspecialchars($data["nim"]);
+function tambahData($data, $files) {
+    global $conn;
+    $nama    = htmlspecialchars($data["nama"]);
+    $nim     = htmlspecialchars($data["nim"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
-    $email = htmlspecialchars($data["email"]);
-    $nohp = htmlspecialchars($data["nohp"]);
-    $foto = htmlspecialchars($data["foto"]);
+    $email   = htmlspecialchars($data["email"]);
+    $no_hp   = htmlspecialchars($data["no_hp"]);
 
-    // Query SQL
-    $query = "INSERT INTO mahasiswa 
-              (nama, nim, jurusan, email, no_hp, foto) 
-              VALUES 
-              ('$nama', '$nim', '$jurusan', '$email', '$nohp', '$foto')";
+    $namafoto = $files["name"];
+    $tmpfoto  = $files["tmp_name"];
+    $date     = date('dmY_His');
+    $newnamafoto = $date . $namafoto;
+    $path     = "../assets/image/" . $newnamafoto;
 
-    // Eksekusi query
-    mysqli_query($koneksi, $query);
-    
-    // Mengembalikan jumlah baris yang berhasil ditambah (untuk cek di file php utama)
-    return mysqli_affected_rows($koneksi);
+    if (move_uploaded_file($tmpfoto, $path)) {
+        $query = "INSERT INTO mahasiswa (nama, nim, jurusan, email, no_hp, foto) VALUES 
+                  ('$nama', '$nim', '$jurusan', '$email', '$no_hp', '$newnamafoto')";
+        mysqli_query($conn, $query);
+    }
+    return mysqli_affected_rows($conn);
 }
 
-// 4. Fungsi untuk menghapus data
-function hapusdata($id)
-{
-    global $koneksi;
-    $query = "DELETE FROM mahasiswa WHERE id=$id";
-    mysqli_query($koneksi, $query);
+function ubahData($data, $id) {
+    global $conn;
+    $nama    = htmlspecialchars($data["nama"]);
+    $nim     = htmlspecialchars($data["nim"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $email   = htmlspecialchars($data["email"]);
+    $no_hp   = htmlspecialchars($data["no_hp"]);
+    $foto    = $data["foto"]; 
+
+    $query = "UPDATE mahasiswa SET 
+                nama = '$nama', 
+                nim = '$nim', 
+                jurusan = '$jurusan', 
+                email = '$email', 
+                no_hp = '$no_hp', 
+                foto = '$foto' 
+              WHERE id = $id";
     
-    // Mengembalikan jumlah baris yang berhasil dihapus
-    return mysqli_affected_rows($koneksi);
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function hapusData($id) {
+    global $conn;
+    $query = "DELETE FROM mahasiswa WHERE id = $id";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
 }
 ?>

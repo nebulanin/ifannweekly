@@ -1,11 +1,8 @@
 <?php
-// Pastikan file fungsi.php berisi fungsi tambahdata yang melakukan query INSERT
 require "fungsi.php";
 
 if(isset($_POST["submit"])) {
-    // Memanggil fungsi tambahdata yang telah dibuat di file fungsi.php
-    // Fungsi ini harus mengembalikan jumlah baris yang terpengaruh (mysqli_affected_rows)
-    if (tambahdata($_POST) > 0) {
+    if (tambahData($_POST, $_FILES["foto"]) > 0) {
         echo "<script>
                 alert('Data Berhasil di Tambahkan!');
                 window.location.href='mahasiswa.php';
@@ -23,7 +20,6 @@ if(isset($_POST["submit"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Mahasiswa</title>
 </head>
 <body>
@@ -51,14 +47,14 @@ if(isset($_POST["submit"])) {
                 <td><input type="email" id="email" name="email"></td>
             </tr>
             <tr>
-                <td><label for="nohp">No. Hp</label></td>
+                <td><label for="no_hp">No. Hp</label></td>
                 <td> : </td>
-                <td><input type="number" id="nohp" name="nohp"></td>
+                <td><input type="number" id="no_hp" name="no_hp"></td>
             </tr>
             <tr>
                 <td><label for="foto">Foto</label></td>
                 <td> : </td>
-                <td><input type="text" id="foto" name="foto"></td>
+                <td><input type="file" id="foto" name="foto"></td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -67,7 +63,5 @@ if(isset($_POST["submit"])) {
             </tr>
         </table>
     </form>
-    <br>
-    <hr>
 </body>
 </html>
