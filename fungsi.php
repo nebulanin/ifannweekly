@@ -61,4 +61,30 @@ function hapusData($id) {
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+
+function register($data) {
+    global $conn;
+    $username   = stripslashes($data["username"]);
+    $password   = mysqli_real_escape_string($conn, $data["password"]);
+    $password1  = mysqli_real_escape_string($conn, $data["password1"]);
+
+    if ($password !== $password1) {
+        echo "<script>
+                alert('Error: Password tidak sesuai!');
+              </script>";
+        return false;
+    }
+
+    //enkripsi password
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+
+
+    $query = "INSERT INTO mahasiswa (nama, nim, jurusan, email, no_hp) VALUES 
+              ('$username', '$password', '$jurusan', '$email', '$no_hp')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
 ?>

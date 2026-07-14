@@ -37,6 +37,7 @@ $mahasiswa = tampilData($query);
                 <td><?= htmlspecialchars($mhs["jurusan"]) ?></td>
                 <td><?= htmlspecialchars($mhs["email"]) ?></td>
                 <td><?= htmlspecialchars($mhs["no_hp"]) ?></td>
+                <td><?= htmlspecialchars($mhs["register"]) ?></td>
                 <td align="center">
                     <img src="assets/image/<?= $mhs["foto"] ?>" alt="Foto" width="60px">
                 </td> 
